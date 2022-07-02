@@ -1,0 +1,47 @@
+header > h1,
+header > ul,
+header > ul > li {
+    display: inline-block;
+}
+
+header {
+    background-color: var(--background-primary);
+    height: 10vh;
+    width: 100%;
+    padding: 1em;
+    padding-top: 1em;
+}
+
+header > h1 {
+    color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+header > h1 > span {
+    font-family: 'Updock', 'Courier New', Courier, monospace;
+    font-size: 1.4em;
+    padding-left: 5px;
+}
+
+header > ul {
+    list-style-type: none;
+    float: right;
+    margin-top: 4px;
+    margin-right: 5em;
+}
+
+header > ul > li {
+    color: white;
+    margin: 10px;
+    font-size: 1.1em;
+    font-weight: 700;
+}
+
+header > ul > li + li {
+    margin-left: 50px;
+}
+
+header > ul > li:hover {
+    color: grey;
+    transition: color 1s;
+}
