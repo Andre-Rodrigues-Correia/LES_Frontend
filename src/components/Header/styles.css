@@ -50,3 +50,7 @@ header > ul > li > a:hover {
     color: grey;
     transition: color 1s;
 }
+
+header > ul > li > a.active{
+    color: grey;
+}

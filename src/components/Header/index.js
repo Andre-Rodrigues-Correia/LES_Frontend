@@ -1,20 +1,20 @@
 import React from "react";
-import {Link} from 'react-router-dom';
+import {NavLink} from 'react-router-dom';
 import './styles.css';
 
 function Header(){
     return (
         <header>
-            <Link to='/'>
+            <NavLink to='/'>
                 <h1>Smith Palace <span>Hotel</span></h1>
-            </Link>
+            </NavLink>
 
             <ul>
                 <li>
-                    <Link to="/entrar">Entrar</Link>
+                    <NavLink to="/entrar">Entrar</NavLink>
                 </li>
                 <li>
-                    <Link to="/criar-conta">Criar conta</Link>
+                    <NavLink to="/criar-conta">Criar conta</NavLink>
                 </li>
             </ul>
         </header>
