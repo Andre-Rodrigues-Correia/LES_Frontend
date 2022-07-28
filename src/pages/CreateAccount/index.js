@@ -21,6 +21,7 @@ function CreateAccount(props) {
                 <input type="password" name='rpassword' />
 
                 <fieldset>
+                    <legend>Tipo de Usuário</legend>
                     <input type="radio" name='usertype' id='gerente' value='gerente' />
                     <label htmlFor="gerente"> Gerente</label><br />
                     <input type="radio" name='usertype' id='funcionario' value='funcionario' />

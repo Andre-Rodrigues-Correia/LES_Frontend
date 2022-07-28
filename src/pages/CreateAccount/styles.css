@@ -10,11 +10,16 @@ form {
 }
 
 form > label,
+form > fieldset > legend,
 form > fieldset > label {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-weight: 500;
     font-size: 1em;
     margin: 20px 0;
+}
+
+form > fieldset > legend {
+    margin: 0;
 }
 
 form > h2 {
@@ -29,6 +34,7 @@ form > fieldset {
     padding: 10px;
     border-radius: 10px;
     margin: 10px 0;
+    border: 1px white solid;
 }
 
 form > input[type=submit] {
