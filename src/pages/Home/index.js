@@ -5,7 +5,7 @@ import Footer from '../../components/Footer';
 function Home(){
     return (
         <>
-            <Header/>
+            <h1>Olá Mundo</h1>
         </>
     )
 }

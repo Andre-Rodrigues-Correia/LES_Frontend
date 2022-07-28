@@ -1,5 +1,6 @@
 header > h1,
 header > ul,
+header > a,
 header > ul > li {
     display: inline-block;
 }
@@ -11,13 +12,16 @@ header {
     padding: 1em;
     padding-top: 1em;
 }
+header > a {
+    text-decoration: none;
+}
 
-header > h1 {
+header > a > h1 {
     color: white;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-header > h1 > span {
+header > a > h1 > span {
     font-family: 'Updock', 'Courier New', Courier, monospace;
     font-size: 1.4em;
     padding-left: 5px;
@@ -26,22 +30,23 @@ header > h1 > span {
 header > ul {
     list-style-type: none;
     float: right;
-    margin-top: 4px;
+    margin-top: 10px;
     margin-right: 5em;
 }
 
-header > ul > li {
+header > ul > li > a {
     color: white;
     margin: 10px;
     font-size: 1.1em;
     font-weight: 700;
+    text-decoration: none;
 }
 
 header > ul > li + li {
     margin-left: 50px;
 }
 
-header > ul > li:hover {
+header > ul > li > a:hover {
     color: grey;
     transition: color 1s;
 }
