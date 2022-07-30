@@ -21,6 +21,7 @@ header > a {
 header > a > h1 {
     color: white;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin-left: 20px;
 }
 
 header > a > h1 > span {
@@ -64,4 +65,8 @@ header > nav > ul > li > a:hover {
 header > ul > li > a.active,
 header > nav > ul > li > a.active {
     color: grey;
+}
+
+.login {
+    display: none;
 }

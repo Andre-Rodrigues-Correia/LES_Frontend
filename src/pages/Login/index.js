@@ -1,9 +1,14 @@
 import React from 'react';
+import {useNavigate} from 'react-router-dom';
 
 function Login(props) {
+    const navigate = useNavigate();
+
     function submit(e){
         e.preventDefault();
-        console.log('Login');
+        localStorage.setItem('login', true);
+        navigate('/');
+        window.location.reload();
     }
 
     return (
