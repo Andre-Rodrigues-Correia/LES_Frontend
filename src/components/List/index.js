@@ -10,9 +10,7 @@ function List({title, data}) {
                 {
                     data.map((e, i) => {
                         return <div className="data" key={i}>
-                            <h3>{e.info}</h3>
-                            <button>Editar</button>
-                            <button>Deletar</button>
+                            <h3>{e}</h3>
                         </div> 
                     })
                 }

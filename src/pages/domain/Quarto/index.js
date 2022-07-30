@@ -9,6 +9,7 @@ function Quarto(props) {
     return (
         <>
             {/* <h1>Quarto</h1> */}
+
             <nav className='navigator'>
                 <ul>
                     <li>
@@ -24,13 +25,14 @@ function Quarto(props) {
                         <NavLink to='/'>Relatórios Reserva Quarto</NavLink>
                     </li>
                     <li>
-                        <NavLink to='/'>Relatórios CheckIn</NavLink>
+                        <NavLink to='/relatorio-checkin'>Relatórios CheckIn</NavLink>
                     </li>
                     <li>
                         <NavLink to='/'>Relatórios CheckOut</NavLink>
                     </li>
                 </ul>
             </nav>
+            
 
             <EditableList title='Quartos' data={data}/>
         </>

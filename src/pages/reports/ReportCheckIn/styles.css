@@ -1,0 +1,20 @@
+form.dateForm {
+    border-radius: 4px;
+    margin: 20px;
+    margin-left: 20vw;
+    background-color: var(--secondary-color);
+}
+
+form.dateForm > label{
+    margin: 10px;
+    font-size: 1.2em;
+}
+
+form.dateForm > input + label {
+    margin-left: 30px;
+}
+
+form.dateForm > input[type=submit] {
+    padding: 6px;
+    margin: 4px;
+}

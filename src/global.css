@@ -94,3 +94,28 @@ form > input[type=password] {
   padding: 10px;
   width: 100%;
 }
+
+/* Barra de navegação */
+
+nav.navigator > ul > li{
+  display: inline-block;
+  margin: 12px;
+}
+
+nav.navigator > ul > li > a {
+  text-decoration: none;
+  color: black;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: 500;
+  font-size: 1.2em;
+}
+
+nav.navigator > ul > li > a:hover {
+  color: grey;
+  transition: color 1s;
+}
+
+nav.navigator > ul > li > a.active{
+  color: var(--background-secondary);
+  color: grey;
+}
