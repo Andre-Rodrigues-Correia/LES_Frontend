@@ -1,7 +1,5 @@
 import React from 'react';
 
-import './styles.css';
-
 function Login(props) {
     function submit(e){
         e.preventDefault();

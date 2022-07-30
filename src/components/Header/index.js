@@ -1,5 +1,5 @@
 import React from "react";
-import {NavLink} from 'react-router-dom';
+import {NavLink, Link} from 'react-router-dom';
 import './styles.css';
 
 function Header(){
@@ -17,6 +17,19 @@ function Header(){
                     <NavLink to="/criar-conta">Criar conta</NavLink>
                 </li>
             </ul>
+            <nav>
+                <ul>
+                    <li>
+                        <NavLink to='/quarto'>Quartos</NavLink>
+                    </li>
+                    <li>
+                        <NavLink to='/veiculo'>Veículos</NavLink>
+                    </li>
+                    <li>
+                        <NavLink to='/localevento'>Locais de Eventos</NavLink>
+                    </li>
+                </ul>
+            </nav>
         </header>
     )
 }

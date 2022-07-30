@@ -1,3 +1,5 @@
+header > nav > ul,
+header > nav > ul > li,
 header > h1,
 header > ul,
 header > a,
@@ -7,7 +9,7 @@ header > ul > li {
 
 header {
     background-color: var(--background-primary);
-    height: 10vh;
+    height: 15vh;
     width: 100%;
     padding: 1em;
     padding-top: 1em;
@@ -27,14 +29,21 @@ header > a > h1 > span {
     padding-left: 5px;
 }
 
-header > ul {
+header > ul,
+header > nav > ul {
     list-style-type: none;
     float: right;
     margin-top: 10px;
     margin-right: 5em;
 }
 
-header > ul > li > a {
+header > nav > ul {
+    margin: 10px;
+    float: none;
+}
+
+header > ul > li > a,
+header > nav > ul > li > a {
     color: white;
     margin: 10px;
     font-size: 1.1em;
@@ -46,11 +55,13 @@ header > ul > li + li {
     margin-left: 50px;
 }
 
-header > ul > li > a:hover {
+header > ul > li > a:hover,
+header > nav > ul > li > a:hover {
     color: grey;
     transition: color 1s;
 }
 
-header > ul > li > a.active{
+header > ul > li > a.active,
+header > nav > ul > li > a.active {
     color: grey;
 }
