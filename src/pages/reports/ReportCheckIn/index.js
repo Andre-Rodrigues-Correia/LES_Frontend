@@ -10,10 +10,6 @@ function ReportCheckIn(props) {
     const [from, setFrom] = useState('');
     const [to, setTo] = useState('');
 
-    useEffect( () => {
-        console.log('Hello')
-    }, [])
-
     async function onSubmit(e){
         e.preventDefault();
 

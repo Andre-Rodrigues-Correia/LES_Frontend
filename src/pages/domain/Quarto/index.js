@@ -14,7 +14,7 @@ function Quarto(props) {
                         <NavLink to='/'>Reserva Quarto</NavLink>
                     </li>
                     <li>
-                        <NavLink to='/'>CheckIn</NavLink>
+                        <NavLink to='/checkin'>CheckIn</NavLink>
                     </li>
                     <li>
                         <NavLink to='/'>CheckOut</NavLink>
