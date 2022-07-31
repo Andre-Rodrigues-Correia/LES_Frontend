@@ -1,0 +1,23 @@
+
+
+form.reportVeiculo {
+    border-radius: 4px;
+    margin: 20px;
+    margin-left: 20vw;
+    background-color: var(--secondary-color);
+}
+
+
+form.reportVeiculo > label{
+    margin: 10px;
+    font-size: 1.2em;
+}
+
+form.reportVeiculo > input + label {
+    margin-left: 30px;
+}
+
+form.reportVeiculo > input[type=submit] {
+    padding: 6px;
+    margin: 4px;
+}

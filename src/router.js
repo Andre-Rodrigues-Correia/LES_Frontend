@@ -8,6 +8,7 @@ import Quarto from './pages/domain/Quarto';
 import LocalEvento from './pages/domain/LocalEvento';
 import Veiculo from './pages/domain/Veiculo';
 import ReportCheckIn from './pages/reports/ReportCheckIn';
+import ReportVeiculo from './pages/reports/ReportReservaVeiculo'
 
 function Router(){
     return (
@@ -25,6 +26,7 @@ function Router(){
 
                     {/* Report pages */}
                     <Route path='/relatorio-checkin' element={<ReportCheckIn/>}/>
+                    <Route path='/relatorio-veiculo' element={<ReportVeiculo/>}/>
                 </Route>
             </Routes>
         </BrowserRouter>
