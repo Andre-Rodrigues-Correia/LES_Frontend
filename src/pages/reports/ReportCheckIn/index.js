@@ -17,7 +17,7 @@ function ReportCheckIn(props) {
     async function onSubmit(e){
         e.preventDefault();
 
-        const {data} = await api(false).get(`/checkin/listar/${from}/${to}`);
+        const {data} = await api.get(`/checkin/listar/${from}/${to}`);
         setReport(formatData(data));
     }
 

@@ -8,8 +8,6 @@ function Quarto(props) {
     ];
     return (
         <>
-            {/* <h1>Quarto</h1> */}
-
             <nav className='navigator'>
                 <ul>
                     <li>
@@ -34,7 +32,7 @@ function Quarto(props) {
             </nav>
             
 
-            <EditableList title='Quartos' data={data}/>
+            {/* <EditableList title='Quartos' data={data}/> */}
         </>
     );
 }
