@@ -11,6 +11,7 @@ import CheckIn from './pages/process/CheckIn';
 import CreateCheckIn from './pages/process/CheckIn/create';
 import UpdateCheckIn from './pages/process/CheckIn/update';
 import ReportCheckIn from './pages/reports/ReportCheckIn';
+import ReportCheckOut from './pages/reports/ReportCheckOut';
 import ReportVeiculo from './pages/reports/ReportReservaVeiculo';
 import ReportLocalEvento from './pages/reports/ReportReservaLocal';
 
@@ -34,7 +35,8 @@ function Router(){
                     <Route path='/atualizar-checkin' element={<UpdateCheckIn/>}/>
 
                     {/* Report pages */}
-                    <Route path='/relatorio-checkin' element={<ReportCheckIn/>}/>
+                    <Route path='/relatorio-checkin' element={<ReportCheckIn />} />
+                    <Route path='/relatorio-checkout' element={<ReportCheckOut />} />
                     <Route path='/relatorio-veiculo' element={<ReportVeiculo/>}/>
                     <Route path='/relatorio-reserva-local-evento' element={<ReportLocalEvento/>}/>
                 </Route>

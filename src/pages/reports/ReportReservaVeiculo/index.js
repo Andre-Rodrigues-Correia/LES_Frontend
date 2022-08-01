@@ -12,6 +12,7 @@ function ReportReservaVeiculo(props) {
     async function onSubmit(e){
         e.preventDefault();
 
+
         api.get(`/reservaveiculo/reservaveiculoquantidadevezesusado/${placa}/${qtdUsado}`).then(res => {
             setReport(formatData(res.data));
             console.log(res.data)
