@@ -5,20 +5,20 @@ import './styles.css';
 function Gerente() {
     return (
         <>
-            <div id="Gerente">
+            <div id="Pessoas">
                 <NavLink to='/'>
 
                 </NavLink>
 
                 <ul>
                     <li>
-                        <NavLink to="/cadastrar-gerente">Cadastrar</NavLink>
+                        <NavLink to="/cliente">Cliente</NavLink>
                     </li>
                     <li>
-                        <NavLink to="/alterar-gerente">Alterar</NavLink>
+                        <NavLink to="/funcionario">Funcionário</NavLink>
                     </li>
                     <li>
-                        <NavLink to="/remover-gerente">Remover</NavLink>
+                        <NavLink to="/gerente">Gerente</NavLink>
                     </li>
                 </ul>
             </div>

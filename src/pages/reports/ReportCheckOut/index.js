@@ -8,7 +8,7 @@ import './styles.css';
 function ReportCheckOut(props) {
     const [report, setReport] = useState([]);
     const [report2, setReport2] = useState([]);
-    const[id, setId] = useState([]);
+    const [id, setId] = useState([]);
     const [to, setTo] = useState('');
     // const checkin; /*chamarReserva();*/
     //  const t = [1,2];
@@ -24,7 +24,7 @@ function ReportCheckOut(props) {
     async function onSubmit(e) {
         e.preventDefault();
 
-         const { data } = await api.get(`/checkout`);
+        const { data } = await api.get(`/checkout`);
         setReport(formatData(data));
     }
 
@@ -32,10 +32,20 @@ function ReportCheckOut(props) {
         return data.map(e => {
             console.log(e);
             console.log(to);
-            if (toString(e.dataCheckout) ==  toString(to) && e.id == id) {
-                return `ReservaQuarto: ${e.dataCheckout}, Preço final: ${e.valor}.`
+            let dat = to.toString() + ':00'
+            if (e.id == id) {
+                if (e.dataCheckout <= dat) {
+                    let test = (e.dataCheckout - dat);
+
+                    console.log(test)
+                    return <>
+                        Data de saída prevista na Reserva: {e.dataCheckout}<br /> Data de saída do CheckOut feita: {dat}<br />Preço Inicial: R$ ${e.valor},00<br /> Multa fixa: R$20,00
+                        <br />Valor final(com Multa): R$ {(e.valor + 20)},00.
+                    </>
+                }
+
             }
-            
+
         });
     }
 
@@ -48,10 +58,10 @@ function ReportCheckOut(props) {
                         <NavLink to='/'>Reserva Quarto</NavLink>
                     </li>
                     <li>
-                        <NavLink to='/'>CheckIn</NavLink>
+                        <NavLink to='/checkin'>CheckIn</NavLink>
                     </li>
                     <li>
-                        <NavLink to='/'>CheckOut</NavLink>
+                        <NavLink to='/checkout'>CheckOut</NavLink>
                     </li>
                     <li>
                         <NavLink to='/'>Relatórios Reserva Quarto</NavLink>
@@ -67,12 +77,12 @@ function ReportCheckOut(props) {
 
             <form className='dateForm' onSubmit={e => onSubmit(e)}>
                 <label htmlFor="id">id do Checkin:</label> <input type="number" id='id' name='id' value={id} onChange={e => setId(e.target.value)} />
-                <br></br> 
-                <label>Id existentes: </label> 
+                <br></br>
+                <label>Id existentes: </label>
                 {report2.map(x => {
                     return <>
                         <br />
-                            <label for="id">{x.id}</label>
+                        <label for="id">{x.id}</label>
                     </>
                 })}
                 <br />
