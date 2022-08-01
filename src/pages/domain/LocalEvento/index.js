@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import {NavLink, useNavigate} from 'react-router-dom';
+import {NavLink} from 'react-router-dom';
 import api from '../../../services/api';
 import './styles.css';
 
@@ -18,7 +18,7 @@ function LocalEvento(props) {
     function deleteLocal(local){
         api.delete(`/localeventos/${Number(local)}`).then(res => {
             setLocais(locais.filter((evento, i) => {
-                if (evento.id != local) return evento;
+                if (evento.id !== local) return evento;
             }));
         })
         .catch(e => {
@@ -39,7 +39,7 @@ function LocalEvento(props) {
                         <NavLink to='/atualizar-localevento'>Alterar Local de Evento</NavLink>
                     </li>
                     <li>
-                        <NavLink to='/relatorio-reserva-local-evento'>Relatório de Reservas de Locais de Eventos</NavLink>
+                        <NavLink to='/localevento-reserva'>Reservas de Locais de Eventos</NavLink>
                     </li>
                 </ul>
             </nav>
@@ -52,7 +52,7 @@ function LocalEvento(props) {
                         locais.map((evento, i) => {
                             return <div className="data" key={i}>
                                 <h3>{`Local de Evento: ${evento.local}, capacidade: ${evento.capacidade}.`}</h3>
-                                <button onClick={e => deleteLocal(evento.id)}>Deletar</button>
+                                <button onClick={e => deleteLocal(evento.id)}>Excluir</button>
                             </div> 
                         })
                     }

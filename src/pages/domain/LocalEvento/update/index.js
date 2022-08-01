@@ -50,7 +50,7 @@ function UpdateLocalEvento(props) {
                 <h2>Atualizar Local de Evento</h2>
 
                 <select name="quartos" id="quartos" value={local} onChange={e => setLocal(e.target.value)}>
-                    <option value={-1}>Selecione uma opção</option>
+                    <option value={-1}>Selecione um Local</option>
                     {locais.map((e, i) => {
                         return <option value={Number(i)} key={e.id}>{`Local de Evento: ${e.local}, capacidade: ${e.capacidade}.`}</option>
                     })}

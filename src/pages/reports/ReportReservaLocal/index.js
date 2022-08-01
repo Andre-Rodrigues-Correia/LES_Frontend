@@ -65,9 +65,9 @@ function ReportReservaLocal(props) {
             </nav>
 
             <form className='dateForm' onSubmit={e => onSubmit(e)}>
-                <label htmlFor="quartos">Reserva de Quartos</label><br />
+                <label htmlFor="quartos">Reserva de Local de Evento</label><br />
                 <select name="quartos" id="quartos" value={localevento} onChange={e => setLocalevento(e.target.value)}>
-                    <option value={-1}>Selecione uma opção</option>
+                    <option value={-1}>Selecione um Local</option>
                     {locais.map((e, i) => {
                         return <option value={Number(i)} key={e.id}>{`Local de Evento: ${e.local}, capacidade: ${e.capacidade}.`}</option>
                     })}

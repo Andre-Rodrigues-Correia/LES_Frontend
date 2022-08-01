@@ -6,8 +6,11 @@ import Layout from './pages/Layout';
 import Login from './pages/Login';
 import Quarto from './pages/domain/Quarto';
 import LocalEvento from './pages/domain/LocalEvento';
+import ReservaEvento from './pages/process/ReservaEvento';
 import CreateLocalEvento from './pages/domain/LocalEvento/create';
 import UpdateLocalEvento from './pages/domain/LocalEvento/update';
+import CreateLocalEventoReserva from './pages/process/ReservaEvento/create';
+import UpdateLocalEventoReserva from './pages/process/ReservaEvento/update';
 import Veiculo from './pages/domain/Veiculo';
 import CheckIn from './pages/process/CheckIn';
 import CreateCheckIn from './pages/process/CheckIn/create';
@@ -37,6 +40,9 @@ function Router(){
                     <Route path='/checkin' element={<CheckIn/>}/>
                     <Route path='/criar-checkin' element={<CreateCheckIn/>}/>
                     <Route path='/atualizar-checkin' element={<UpdateCheckIn/>}/>
+                    <Route path='/localevento-reserva' element={<ReservaEvento/>}/>
+                    <Route path='/criar-localevento-reserva' element={<CreateLocalEventoReserva/>}/>
+                    <Route path='/atualizar-localevento-reserva' element={<UpdateLocalEventoReserva/>}/>
 
                     {/* Report pages */}
                     <Route path='/relatorio-checkin' element={<ReportCheckIn />} />
