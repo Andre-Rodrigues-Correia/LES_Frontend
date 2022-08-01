@@ -17,7 +17,7 @@ function ReportReservaVeiculo(props) {
     async function onSubmit(e){
         e.preventDefault();
 
-        const {data} = await api(false).get(`veiculo`);
+        const {data} = await api.get(`veiculo`);
         setReport(formatData(data));
     }
 
