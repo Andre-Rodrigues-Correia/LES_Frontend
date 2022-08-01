@@ -32,7 +32,8 @@ function ReportCheckOut(props) {
         return data.map(e => {
             console.log(e);
             console.log(to);
-            if (toString(e.dataCheckout) ==  toString(to) && e.id == id) {
+            let dat = to.toString() + ':00'
+            if (e.dataCheckout == dat && e.id == id) {
                 return `ReservaQuarto: ${e.dataCheckout}, Preço final: ${e.valor}.`
             }
             
