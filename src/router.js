@@ -7,6 +7,9 @@ import Login from './pages/Login';
 import Quarto from './pages/domain/Quarto';
 import LocalEvento from './pages/domain/LocalEvento';
 import Veiculo from './pages/domain/Veiculo';
+import CheckIn from './pages/process/CheckIn';
+import CreateCheckIn from './pages/process/CheckIn/create';
+import UpdateCheckIn from './pages/process/CheckIn/update';
 import ReportCheckIn from './pages/reports/ReportCheckIn';
 import ReportCheckOut from './pages/reports/ReportCheckOut';
 import ReportVeiculo from './pages/reports/ReportReservaVeiculo';
@@ -25,6 +28,11 @@ function Router(){
                     <Route path='/quarto' element={<Quarto/>}/>
                     <Route path='/localevento' element={<LocalEvento/>}/>
                     <Route path='/veiculo' element={<Veiculo/>}/>
+
+                    {/* Process */}
+                    <Route path='/checkin' element={<CheckIn/>}/>
+                    <Route path='/criar-checkin' element={<CreateCheckIn/>}/>
+                    <Route path='/atualizar-checkin' element={<UpdateCheckIn/>}/>
 
                     {/* Report pages */}
                     <Route path='/relatorio-checkin' element={<ReportCheckIn />} />

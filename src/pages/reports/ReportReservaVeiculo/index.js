@@ -2,7 +2,6 @@ import React, {useState, useEffect} from 'react';
 import api from '../../../services/api';
 import {NavLink} from 'react-router-dom';
 import List from '../../../components/List'
-import './styles.css'
 
 function ReportReservaVeiculo(props) {
 
@@ -10,24 +9,23 @@ function ReportReservaVeiculo(props) {
     const [qtdUsado, setQtdUsado] = useState([])
     const [placa, setPlaca] = useState([])
 
-    useEffect( () => {
-        console.log('Hello')
-    }, [])
-
     async function onSubmit(e){
         e.preventDefault();
 
-        const {data} = await api.get(`veiculo`);
-        setReport(formatData(data));
+
+        api.get(`/reservaveiculo/reservaveiculoquantidadevezesusado/${placa}/${qtdUsado}`).then(res => {
+            setReport(formatData(res.data));
+            console.log(res.data)
+        })
+        .catch(e => {
+            alert(e.response.data.message);
+        })
     }
 
 
     function formatData(data){
         return data.map(e => {
-            if(e.placa  == placa && e.quantidadeVezesUsado == qtdUsado){
-                console.log('OK')
-                return `Placa: ${e.placa} Quantidade de vezes usada no mês: ${e.quantidadeVezesUsado}`
-            }
+            return `Nome do veiculo: ${e.veiculo.nomeVeiculo}, Placa: ${e.veiculo.placa}`
         });
     }
 
