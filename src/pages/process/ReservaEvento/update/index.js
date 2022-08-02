@@ -9,14 +9,22 @@ function UpdateLocalEventoReserva(props) {
     const [to, setTo] = useState('');
 
     // Dados de locais de evento
-    const [locais, setLocais] = useState([]);
-    const [local, setLocal] = useState(-1);
+    const [reservas, setReservas] = useState([]);
+    const [reserva, setReserva] = useState(-1);
+    const [clientes, setClientes] = useState([]);
+    const [cliente, setCliente] = useState([]);
 
     const navigate = useNavigate();
 
     useEffect(() => {
-        api.get('/localeventos').then(res => {
-            setLocais(res.data);
+        api.get('/reservaevento').then(res => {
+            setReservas(res.data);
+        })
+        .catch(e => {
+            alert(e.response.data.message);
+        })
+        api.get('/clientes').then(res => {
+            setClientes(res.data);
         })
         .catch(e => {
             alert(e.response.data.message);
@@ -27,10 +35,13 @@ function UpdateLocalEventoReserva(props) {
         e.preventDefault();
 
         const data = {
-            qtdPessoas
+            cliente: cliente,
+            qtdPessoas: qtdPessoas,
+            dataInicio: new Date ("2022-05-10T00:00:00"),
+            dataFim: new Date ("2022-05-30T00:00:00")
         };
 
-        api.post('localeventos', data).then(res => {
+        api.post('reservaevento', data).then(res => {
             navigate('/');
         })
         .catch(e => {
@@ -41,20 +52,20 @@ function UpdateLocalEventoReserva(props) {
     return (
         <>
             <form onSubmit={e => onSubmit(e)}>
-                <h2>Cadastrar Reserva de Local de Evento</h2>
+                <h2>Alterar Reserva de Local de Evento</h2>
 
-                <select name="quartos" id="quartos" value={local} onChange={e => setLocal(e.target.value)}>
+                <select name="quartos" id="quartos" value={reserva} onChange={e => setReserva(e.target.value)}>
                     <option value={-1}>Selecione uma Reserva</option>
-                    {locais.map((e, i) => {
-                        return <option value={Number(i)} key={e.id}>{`Local de Evento: ${e.local}, capacidade: ${e.capacidade}.`}</option>
+                    {reservas.map((e, i) => {
+                        return <option value={Number(i)} key={e.id}>{`Reserva de Local de Evento: ${e.reserva}.`}</option>
                     })}
                 </select>
                 <br />
 
-                <select name="clientes" id="clientes" value={local} onChange={e => setLocal(e.target.value)}>
+                <select name="clientes" id="clientes" value={cliente} onChange={e => setCliente(e.target.value)}>
                     <option value={-1}>Selecione um Cliente</option>
-                    {locais.map((e, i) => {
-                        return <option value={Number(i)} key={e.id}>{`Local de Evento: ${e.local}, capacidade: ${e.capacidade}.`}</option>
+                    {clientes.map((e, i) => {
+                        return <option value={Number(i)} key={e.id}>{`Cliente: ${e.cliente}.`}</option>
                     })}
                 </select>
                 <br />

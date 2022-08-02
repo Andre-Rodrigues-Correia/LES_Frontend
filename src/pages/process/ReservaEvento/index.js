@@ -5,20 +5,20 @@ import './styles.css';
 
 function ReservaEvento(props) {
     useEffect(() => {
-        api.get('localeventos').then(res => {
-            setLocais(res.data);
+        api.get('reservaevento').then(res => {
+            setReservas(res.data);
         })
         .catch(e => {
             alert(e.response.data.message);
         })
     }, [])
 
-    const [locais, setLocais] = useState([]);
+    const [reservas, setReservas] = useState([]);
 
-    function deleteLocal(local){
-        api.delete(`/localeventos/${Number(local)}`).then(res => {
-            setLocais(locais.filter((evento, i) => {
-                if (evento.id !== local) return evento;
+    function deleteReserva(reserva){
+        api.delete(`/reservaevento/${Number(reserva)}`).then(res => {
+            setReservas(reservas.filter((eventoReserva, i) => {
+                if (eventoReserva.id !== reserva) return eventoReserva;
             }));
         })
         .catch(e => {
@@ -48,14 +48,14 @@ function ReservaEvento(props) {
             </nav>
         
             <div className='editable'>
-                <h1>Locais de Evento</h1>
+                <h1>Reservas de Locais de Evento</h1>
 
                 <div className="container">
                     {
-                        locais.map((evento, i) => {
+                        reservas.map((eventoReserva, i) => {
                             return <div className="data" key={i}>
-                                <h3>{`Local de Evento: ${evento.local}, capacidade: ${evento.capacidade}.`}</h3>
-                                <button onClick={e => deleteLocal(evento.id)}>Excluir</button>
+                                <h3>{`Reserva de Local de Evento: ${eventoReserva.reserva}, capacidade: ${eventoReserva.capacidade}.`}</h3>
+                                <button onClick={e => deleteReserva(eventoReserva.id)}>Excluir</button>
                             </div> 
                         })
                     }
