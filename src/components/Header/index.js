@@ -46,6 +46,9 @@ function Header(){
                     <li>
                         <NavLink to='/localevento' className={!isLoggedIn ? 'login' : ''}>Locais de Eventos</NavLink>
                     </li>
+                    <li>
+                        <NavLink to='/pessoas' className={!isLoggedIn ? 'login' : ''}>Pessoas</NavLink>
+                    </li>
                 </ul>
             </nav>
         </header>
