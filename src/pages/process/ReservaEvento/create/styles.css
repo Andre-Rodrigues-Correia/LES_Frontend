@@ -1,0 +1,11 @@
+form > input[type=submit] {
+    margin: 10px;
+}
+
+form > legend {
+    margin-top: 10px;
+}
+
+form > fieldset {
+    height: auto;
+}

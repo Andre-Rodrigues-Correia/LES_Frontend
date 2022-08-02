@@ -5,27 +5,44 @@ import api from '../../../services/api';
 
 function ReportReservaLocal(props) {
     const [report, setReport] = useState([]);
-    const [idLocal, setIdLocal] = useState([]);
     const [from, setFrom] = useState('');
     const [to, setTo] = useState('');
 
+    // dados do local de evento
+    const [locais, setLocais] = useState([]);
+    const [localevento, setLocalevento] = useState(-1);
+
     useEffect( () => {
-        console.log('Hello')
+        api.get('/localeventos').then(res => {
+            setLocais(res.data);
+        })
+        .catch(e => {
+            alert(e.response.data.message);
+        })
     }, [])
 
-    async function onSubmit(e){
+    function onSubmit(e){
         e.preventDefault();
 
-        const {data} = await api(true).get(`/localEventoes`);
-        setReport(formatData(data));
+        if (localevento === -1 ||
+            from === '' ||
+            to === ''){
+            alert('Por favor, preencha os dados.')
+        }
+
+        api.get(`/reservaevento/reservaeventoporlocal/${locais[localevento].id}/${from}/${to}`).then(res => {
+            console.log(res.data);
+            setReport(formatReport(res.data));
+        })
+        .catch(e => {
+            alert(e.response.data.message);
+        })
     }
 
 
-    function formatData(data){
+    function formatReport(data){
         return data.map(e => {
-            if(true){
-                console.log('OK');
-            }
+            return `Local de Evento: ${e.local}, capacidade: ${e.capacidade}.`
         });
     }
 
@@ -36,13 +53,10 @@ function ReportReservaLocal(props) {
             <nav className='navigator'>
                 <ul>
                     <li>
-                        <NavLink to='/cadastrar-reserva-local-evento'>Cadastrar Reserva de Local de Evento</NavLink>
+                        <NavLink to='/criar-localevento'>Cadastrar Local de Evento</NavLink>
                     </li>
                     <li>
                         <NavLink to='/alterar-reserva-local-evento'>Alterar Reserva de Local de Evento</NavLink>
-                    </li>
-                    <li>
-                        <NavLink to='/remover-reserva-local-evento'>Remover Reserva de Local de Evento</NavLink>
                     </li>
                     <li>
                         <NavLink to='/relatorio-reserva-local-evento'>Relatório de Reservas de Locais de Eventos</NavLink>
@@ -51,8 +65,13 @@ function ReportReservaLocal(props) {
             </nav>
 
             <form className='dateForm' onSubmit={e => onSubmit(e)}>
-                <label htmlFor="idLocal">ID</label>
-                <input type="number" id='idLocal' name='idLocal' value={idLocal} onChange={e => setIdLocal(e.target.value)}/>
+                <label htmlFor="quartos">Reserva de Local de Evento</label><br />
+                <select name="quartos" id="quartos" value={localevento} onChange={e => setLocalevento(e.target.value)}>
+                    <option value={-1}>Selecione um Local</option>
+                    {locais.map((e, i) => {
+                        return <option value={Number(i)} key={e.id}>{`Local de Evento: ${e.local}, capacidade: ${e.capacidade}.`}</option>
+                    })}
+                </select>
                 <br />
                 <label htmlFor="from">De</label>
                 <input type="datetime-local" id='from' name='from' value={from} onChange={e => setFrom(e.target.value)}/>
@@ -65,7 +84,7 @@ function ReportReservaLocal(props) {
 
             {/* <h1>Relatório Local de Evento</h1> */}
 
-            {/* <List title='Relatório de Reservas de Locais de Eventos por Período' data={report}/> */}
+            <List title='Relatório de Reservas de Locais de Eventos por Período' data={report}/>
         </>
     );
 }

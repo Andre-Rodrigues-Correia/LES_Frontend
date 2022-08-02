@@ -6,6 +6,11 @@ import Layout from './pages/Layout';
 import Login from './pages/Login';
 import Quarto from './pages/domain/Quarto';
 import LocalEvento from './pages/domain/LocalEvento';
+import ReservaEvento from './pages/process/ReservaEvento';
+import CreateLocalEvento from './pages/domain/LocalEvento/create';
+import UpdateLocalEvento from './pages/domain/LocalEvento/update';
+import CreateLocalEventoReserva from './pages/process/ReservaEvento/create';
+import UpdateLocalEventoReserva from './pages/process/ReservaEvento/update';
 import Veiculo from './pages/domain/Veiculo';
 import Gerente from './pages/domain/Gerente';
 import Funcionarios from './pages/domain/Funcionario';
@@ -36,8 +41,10 @@ function Router() {
                     <Route path='/entrar' element={<Login />} />
 
                     {/* Domain pages */}
-                    <Route path='/quarto' element={<Quarto />} />
-                    <Route path='/localevento' element={<LocalEvento />} />
+                    <Route path='/quarto' element={<Quarto/>}/>
+                    <Route path='/localevento' element={<LocalEvento/>}/>
+                    <Route path='/criar-localevento' element={<CreateLocalEvento/>}/>
+                    <Route path='/atualizar-localevento' element={<UpdateLocalEvento/>}/>
                     <Route path='/veiculo' element={<Veiculo />} />
                     <Route path='/pessoas' element={<Pessoas />} />
                     <Route path='/gerente' element={<Gerente />} />
@@ -45,9 +52,12 @@ function Router() {
                     <Route path='/funcionario' element={<Funcionarios />} />
 
                     {/* Process */}
-                    <Route path='/checkin' element={<CheckIn />} />
-                    <Route path='/criar-checkin' element={<CreateCheckIn />} />
-                    <Route path='/atualizar-checkin' element={<UpdateCheckIn />} />
+                    <Route path='/checkin' element={<CheckIn/>}/>
+                    <Route path='/criar-checkin' element={<CreateCheckIn/>}/>
+                    <Route path='/atualizar-checkin' element={<UpdateCheckIn/>}/>
+                    <Route path='/localevento-reserva' element={<ReservaEvento/>}/>
+                    <Route path='/criar-localevento-reserva' element={<CreateLocalEventoReserva/>}/>
+                    <Route path='/atualizar-localevento-reserva' element={<UpdateLocalEventoReserva />} />
                     <Route path='/checkout' element={<CheckOut />} />
                     <Route path='/criar-checkout' element={<CreateCheckOut />} />
                     <Route path='/atualizar-checkout' element={<UpdateCheckOut />} />
