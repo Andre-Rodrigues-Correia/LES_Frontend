@@ -29,6 +29,10 @@ import ReportLocalEvento from './pages/reports/ReportReservaLocal';
 import CadastrarGerente from './pages/process/Pessoas/Gerente/Cadastrar';
 import AlterarGerente from './pages/process/Pessoas/Gerente/Alterar';
 import RemoverGerente from './pages/process/Pessoas/Gerente/Remover';
+import CreateReservaVeiculo from './pages/process/ReservaVeiculo/create'
+import UpdateReservaVeiculo from './pages/process/ReservaVeiculo/update'
+import CreateVeiculo from './pages/domain/Veiculo/create'
+import UpdateVeiculo from './pages/domain/Veiculo/update'
 
 
 function Router() {
@@ -45,11 +49,13 @@ function Router() {
                     <Route path='/localevento' element={<LocalEvento/>}/>
                     <Route path='/criar-localevento' element={<CreateLocalEvento/>}/>
                     <Route path='/atualizar-localevento' element={<UpdateLocalEvento/>}/>
-                    <Route path='/veiculo' element={<Veiculo />} />
                     <Route path='/pessoas' element={<Pessoas />} />
                     <Route path='/gerente' element={<Gerente />} />
                     <Route path='/cliente' element={<Cliente />} />
                     <Route path='/funcionario' element={<Funcionarios />} />
+                    <Route path='/veiculo' element={<Veiculo/>}/>
+                    <Route path='/criar-veiculo' element={<CreateVeiculo/>}/>
+                    <Route path='/atualizar-veiculo' element={<UpdateVeiculo/>}/>
 
                     {/* Process */}
                     <Route path='/checkin' element={<CheckIn/>}/>
@@ -64,10 +70,14 @@ function Router() {
                     <Route path='/cadastrar-gerente' element={<CadastrarGerente />} />
                     <Route path='/alterar-gerente' element={<AlterarGerente />} />
                     <Route path='/remover-gerente' element={<RemoverGerente />} />
+                    <Route path='/criar-reserva-veiculo' element={<CreateReservaVeiculo/>}/>
+                    <Route path='/atualizar-reserva-veiculo' element={<UpdateReservaVeiculo/>}/>
 
                     {/* Report pages */}
                     <Route path='/relatorio-checkin' element={<ReportCheckIn />} />
                     <Route path='/relatorio-checkout' element={<ReportCheckOut />} />
+                    <Route path='/relatorio-veiculo' element={<ReportVeiculo />} />
+                    <Route path='/relatorio-reserva-local-evento' element={<ReportLocalEvento />} />
                     <Route path='/relatorio-veiculo' element={<ReportVeiculo />} />
                     <Route path='/relatorio-reserva-local-evento' element={<ReportLocalEvento />} />
                 </Route>

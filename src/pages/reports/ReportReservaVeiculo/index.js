@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react';
 import api from '../../../services/api';
 import {NavLink} from 'react-router-dom';
 import List from '../../../components/List'
+import './styles.css';
 
 function ReportReservaVeiculo(props) {
 
@@ -13,9 +14,8 @@ function ReportReservaVeiculo(props) {
         e.preventDefault();
 
 
-        api.get(`/reservaveiculo/reservaveiculoquantidadevezesusado/${placa}/${qtdUsado}`).then(res => {
+        api.get(`veiculo`).then(res => {
             setReport(formatData(res.data));
-            console.log(res.data)
         })
         .catch(e => {
             alert(e.response.data.message);
@@ -25,31 +25,39 @@ function ReportReservaVeiculo(props) {
 
     function formatData(data){
         return data.map(e => {
-            return `Nome do veiculo: ${e.veiculo.nomeVeiculo}, Placa: ${e.veiculo.placa}`
+             if(e.quantidadeVezesUsado == qtdUsado){
+                return `Nome do veiculo: ${e.nomeVeiculo}, Placa: ${e.placa}`
+             }else{
+                
+             }
+            
         });
     }
 
     return (<>
-          <nav className='navigator'>
-                <ul>
-                    <li>
-                        <NavLink to='/'>Reserva Veiculo</NavLink>
-                    </li>
-                    <li>
-                        <NavLink to='/'>Cadastrar Veiculo</NavLink>
-                    </li>
-                    <li>
-                        <NavLink to='/'>Editar Veiculo</NavLink>
-                    </li>
-                    <li>
-                        <NavLink to='/'>Remover Veiculo</NavLink>
-                    </li>
-                </ul>
-            </nav>
 
+                    <nav className='navigator'>
+                        <ul>
+                            <li>
+                                    <NavLink to='/criar-reserva-veiculo'>Cadastrar Reserva Veiculo</NavLink>
+                                </li>
+                                <li>
+                                    <NavLink to='/atualizar-reserva-veiculo'>Atualizar Reserva Veículo</NavLink>
+                                </li>
+                                <li>
+                                    <NavLink to='/criar-veiculo'>Cadastrar Veículo</NavLink>
+                                </li>
+                                <li>
+                                    <NavLink to='/atualizar-veiculo'>Atualizar</NavLink>
+                                </li>
+                                <li>
+                                    <NavLink to='/relatorio-veiculo'>Relatório Veiculo</NavLink>
+                                </li>
+                        </ul>
+                    </nav> 
             {/* //////////////////////////////////////////////////////// */}
-            <div className='inputReport'>
-                <form className='reportVeiculo' onSubmit={e => onSubmit(e)}>
+
+                <form className='dateForm' onSubmit={e => onSubmit(e)}>
                     <label htmlFor="placa">Placa do Veículo</label>
                     <input type="text" id='placa' name='placa' value={placa} onChange={e => setPlaca(e.target.value)} required/>
 
@@ -58,7 +66,6 @@ function ReportReservaVeiculo(props) {
 
                     <input type="submit" />
                 </form>
-            </div>
            
             {/* <h1>Relatório Veiculos</h1> */}
 
