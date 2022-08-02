@@ -54,7 +54,7 @@ function ReservaEvento(props) {
                     {
                         reservas.map((eventoReserva, i) => {
                             return <div className="data" key={i}>
-                                <h3>{`Reserva de Local de Evento: ${eventoReserva.reserva}.`}</h3>
+                                <h3>{`Reserva de Local de Evento: ${eventoReserva.id}`}</h3>
                                 <button onClick={e => deleteReserva(eventoReserva.id)}>Excluir</button>
                             </div> 
                         })
